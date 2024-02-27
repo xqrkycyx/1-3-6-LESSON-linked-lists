@@ -75,16 +75,32 @@ class LinkedList {
    *  or `null` if no match is found
    */
   find(isMatch) {
+    return this.findWithPrevious(isMatch)[0];
+  }
+
+  /**
+   * Find a node, and its previous node, in the linked list.
+   * @param isMatch
+   *  Function that returns `true` if the current node matches the search criteria
+   *
+   * @returns {[Node|null, Node|null]}
+   *  The first element is the node where `isMatch(node, index) === true`, or `null` if no match is found.
+   *  The second element is the previous Node, or `null` if no match is found.
+   *  This second element is also `null` if `this.head` is the matched node.
+   */
+  findWithPrevious(isMatch) {
     let index = 0;
+    let previous = null;
     let node = this.head;
     while (node) {
       if (isMatch(node, index)) {
-        return node;
+        return [node, previous];
       }
       index++;
+      previous = node;
       node = node.next;
     }
-    return null;
+    return [null, null];
   }
 }
 
