@@ -4,6 +4,7 @@ const linkedList = new LinkedList();
 
 linkedList.insertAtHead("One");
 linkedList.insert(2);
+linkedList.insert(1.5, (node) => node.value === "One");
 
 console.log(linkedList); // before 'update' of "One" to "1"
 

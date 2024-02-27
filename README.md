@@ -4,13 +4,13 @@ Run the code using the command `node useLinkedList.js` - You will see the follo
 // console.log(linkedList); // before using find() to update "One" to "1" :
 
 LinkedList {
-  head: Node { value: 'One', next: Node { value: 2, next: null } }
+  head: Node { value: 'One', next: Node { value: 1.5, next: [Node] } }
 }
 
 // console.log(linkedList); // AFTER using find() to update "One" to "1" :
 
 LinkedList {
-  head: Node { value: 1, next: Node { value: 2, next: null } }
+  head: Node { value: 1, next: Node { value: 1.5, next: [Node] } }
 }
 
 // console.log(
