@@ -102,6 +102,31 @@ class LinkedList {
     }
     return [null, null];
   }
+
+  /**
+   * Remove the first node where `isMatch(node, index, this) === true`.
+   *
+   * @param isMatch
+   *  Function that returns `true` if the current node matches the node to be removed
+   *
+   * @returns {*}
+   *  The value of the removed node where `isMatch(node, index) === true`, or `null` if no match is found
+   */
+
+  remove(isMatch) {
+    const [matchedNode, previousNode] = this.findWithPrevious(isMatch);
+
+    if (!matchedNode) {
+      return null;
+    }
+
+    if (this.head === matchedNode) {
+      this.head = this.head.next;
+    } else {
+      previousNode.next = matchedNode.next;
+    }
+    return this;
+  }
 }
 
 module.exports = LinkedList;
